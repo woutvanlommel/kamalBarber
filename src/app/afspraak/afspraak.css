@@ -1,0 +1,368 @@
+.afspraak-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 20px;
+    min-height: 100vh;
+}
+
+.afspraak-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #b1190a 0%, #8a1308 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(177, 25, 10, 0.3);
+}
+
+.afspraak-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.afspraak-header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+.afspraak-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.afspraak-form {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #b1190a;
+    box-shadow: 0 0 0 3px rgba(177, 25, 10, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #b1190a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #8a1308;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(177, 25, 10, 0.3);
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d0d0d0;
+}
+
+.afspraak-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #b1190a;
+}
+
+.info-card h3 {
+    color: #b1190a;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.info-card p {
+    margin: 5px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-card ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.info-card ul li {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-card.highlight {
+    background: linear-gradient(135deg, #fff5f3 0%, #ffe8e5 100%);
+    border-left-color: #b1190a;
+    border-left-width: 5px;
+}
+
+/* Success Banner */
+.success-banner {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+.success-banner span {
+    font-size: 1.5rem;
+}
+
+.success-banner p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Tijdslots Sectie */
+.timeslots-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    border: 2px solid #dee2e6;
+}
+
+.timeslots-section h3 {
+    color: #b1190a;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.availability-info {
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.timeslots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+}
+
+.timeslot {
+    padding: 15px 10px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    position: relative;
+}
+
+.timeslot:hover:not(:disabled) {
+    border-color: #b1190a;
+    background: #fff5f3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(177, 25, 10, 0.2);
+}
+
+.timeslot.selected {
+    background: linear-gradient(135deg, #b1190a 0%, #8a1308 100%);
+    color: white;
+    border-color: #b1190a;
+    box-shadow: 0 4px 15px rgba(177, 25, 10, 0.4);
+}
+
+.timeslot.booked {
+    background: #e9ecef;
+    color: #6c757d;
+    border-color: #dee2e6;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.timeslot.booked .booked-label {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 3px;
+    color: #dc3545;
+    font-weight: normal;
+}
+
+.select-date-prompt {
+    padding: 40px;
+    text-align: center;
+    background: rgb(228, 228, 228);
+    border: 1px solid #b1190a;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.select-date-prompt p {
+    color: #b1190a;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.no-slots-message {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    border-radius: 5px;
+}
+
+.no-slots-message p {
+    color: #856404;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .afspraak-content {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .afspraak-header h1 {
+        font-size: 2rem;
+    }
+
+    .afspraak-form {
+        padding: 25px;
+    }
+
+    .timeslots-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .afspraak-container {
+        padding: 20px 10px;
+    }
+
+    .afspraak-header {
+        padding: 25px 15px;
+    }
+
+    .afspraak-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .afspraak-header p {
+        font-size: 0.95rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .timeslots-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .success-banner {
+        left: 10px;
+        right: 10px;
+        transform: none;
+        padding: 15px 20px;
+    }
+}

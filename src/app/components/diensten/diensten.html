@@ -1,0 +1,52 @@
+<section class="diensten-section" id="diensten">
+    <div class="diensten-container">
+        <div class="section-header">
+            <span class="section-subtitle">Wat We Bieden</span>
+            <h2>Onze Diensten</h2>
+            <p>Kwaliteit, stijl en precisie - dat is wat wij leveren bij Kamal Barbershop</p>
+        </div>
+
+        <div class="diensten-grid">
+            @for (dienst of diensten; track dienst.title) {
+                <div class="dienst-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="icon-wrapper">
+                                <span class="dienst-icon">{{ dienst.icon }}</span>
+                            </div>
+                            <h3>{{ dienst.title }}</h3>
+                            <div class="price-tag">{{ dienst.price }}</div>
+                            <span class="duration-badge">{{ dienst.duration }}</span>
+                        </div>
+                        
+                        <div class="card-overlay">
+                            <div class="overlay-content">
+                                <h3>{{ dienst.title }}</h3>
+                                <p class="dienst-description">{{ dienst.description }}</p>
+                                
+                                <ul class="dienst-features">
+                                    @for (feature of dienst.features; track feature) {
+                                        <li><span class="check-icon">✓</span> {{ feature }}</li>
+                                    }
+                                </ul>
+                                
+                                <a routerLink="/afspraak" class="book-btn">Boek {{ dienst.price }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-content">
+                <h3>Klaar voor een nieuwe look?</h3>
+                <p>Maak vandaag nog een afspraak en ervaar de Kamal Barbershop kwaliteit</p>
+                <a routerLink="/afspraak" class="cta-button">
+                    <span>Afspraak Maken</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

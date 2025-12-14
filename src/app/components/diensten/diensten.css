@@ -1,0 +1,331 @@
+.diensten-section {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #fafafa 0%, #ffffff 50%, #fafafa 100%);
+    position: relative;
+}
+
+.diensten-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b1190a, transparent);
+}
+
+.diensten-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-subtitle {
+    display: inline-block;
+    color: #b1190a;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background: #b1190a;
+}
+
+.section-subtitle::before {
+    right: calc(100% + 15px);
+}
+
+.section-subtitle::after {
+    left: calc(100% + 15px);
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin: 15px 0 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    font-size: 1.15rem;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.diensten-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 35px;
+    margin-bottom: 80px;
+}
+
+.dienst-card {
+    perspective: 1000px;
+    height: 450px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.dienst-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #b1190a 0%, #8a1308 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(177, 25, 10, 0.3);
+}
+
+.dienst-icon {
+    font-size: 3rem;
+    filter: brightness(0) invert(1);
+}
+
+.card-front h3 {
+    color: #1a1a1a;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #b1190a;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.duration-badge {
+    background: #f5f5f5;
+    color: #666;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-overlay {
+    background: linear-gradient(135deg, #b1190a 0%, #8a1308 100%);
+    transform: rotateY(180deg);
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.overlay-content {
+    color: white;
+    width: 100%;
+}
+
+.overlay-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.dienst-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    opacity: 0.95;
+}
+
+.dienst-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.dienst-features li {
+    padding: 8px 0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.book-btn {
+    display: block;
+    text-align: center;
+    background: white;
+    color: #b1190a;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-section {
+    position: relative;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(177, 25, 10, 0.15), transparent);
+    border-radius: 50%;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.cta-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.cta-section p {
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #b1190a 0%, #8a1308 100%);
+    color: white;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 30px rgba(177, 25, 10, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(177, 25, 10, 0.5);
+}
+
+.cta-button .arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .diensten-section {
+        padding: 60px 15px;
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .diensten-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .dienst-card {
+        height: 400px;
+    }
+
+    .cta-section {
+        padding: 50px 25px;
+    }
+
+    .cta-section h3 {
+        font-size: 1.8rem;
+    }
+}

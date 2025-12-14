@@ -1,0 +1,46 @@
+<section class="gallery-section" id="portfolio">
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <span class="section-subtitle">Portfolio</span>
+            <h2>Onze Werken</h2>
+            <p>Ontdek onze passie voor stijl en perfectie in elk detail</p>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-buttons">
+                @for (category of categories; track category) {
+                    <button 
+                        class="filter-btn"
+                        [class.active]="selectedCategory === category"
+                        (click)="selectCategory(category)">
+                        <span>{{ category }}</span>
+                    </button>
+                }
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            @for (image of filteredImages; track image.url) {
+                <div class="gallery-item">
+                    <div class="image-wrapper">
+                        <img [src]="image.url" [alt]="image.alt">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="category-badge">{{ image.category }}</span>
+                                <h3>{{ image.alt }}</h3>
+                                <div class="overlay-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (filteredImages.length === 0) {
+            <div class="no-results">
+                <div class="no-results-icon">📷</div>
+                <p>Geen afbeeldingen gevonden voor deze categorie</p>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,163 @@
+<div class="afspraak-container">
+    <!-- Success Message -->
+    @if (showSuccessMessage) {
+        <div class="success-banner">
+            <span>✅</span>
+            <p>{{ successMessage }}</p>
+        </div>
+    }
+
+    <div class="afspraak-header">
+        <h1>Maak een Afspraak</h1>
+        <p>Selecteer een datum en kies een beschikbaar tijdslot bij Kamal Barbershop Pelt</p>
+    </div>
+
+    <div class="afspraak-content">
+        <form class="afspraak-form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="naam">Naam *</label>
+                <input 
+                    type="text" 
+                    id="naam" 
+                    name="naam" 
+                    [(ngModel)]="formData.naam"
+                    placeholder="Uw volledige naam" 
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    [(ngModel)]="formData.email"
+                    placeholder="uw.email@voorbeeld.be" 
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefoon">Telefoonnummer *</label>
+                <input 
+                    type="tel" 
+                    id="telefoon" 
+                    name="telefoon"
+                    [(ngModel)]="formData.telefoon"
+                    placeholder="+32 123 45 67 89" 
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="datum">Selecteer Datum *</label>
+                <input 
+                    type="date" 
+                    id="datum" 
+                    name="datum"
+                    [(ngModel)]="selectedDate"
+                    [min]="minDate"
+                    (change)="onDateChange()"
+                    required>
+            </div>
+
+            <!-- Tijdslot Selectie -->
+            @if (selectedDate) {
+                <div class="timeslots-section">
+                    <h3>Beschikbare Tijdslots - {{ selectedDate }}</h3>
+                    <p class="availability-info">
+                        {{ getAvailableSlotsCount() }} van {{ availableTimeSlots.length }} slots beschikbaar
+                    </p>
+                    
+                    <div class="timeslots-grid">
+                        @for (slot of availableTimeSlots; track slot) {
+                            <button
+                                type="button"
+                                class="timeslot"
+                                [class.selected]="formData.tijd === slot"
+                                [class.booked]="!isTimeSlotAvailable(slot)"
+                                [disabled]="!isTimeSlotAvailable(slot)"
+                                (click)="selectTimeSlot(slot)">
+                                {{ slot }}
+                                @if (!isTimeSlotAvailable(slot)) {
+                                    <span class="booked-label">Bezet</span>
+                                }
+                            </button>
+                        }
+                    </div>
+
+                    @if (getAvailableSlotsCount() === 0) {
+                        <div class="no-slots-message">
+                            <p>⚠️ Geen beschikbare tijdslots voor deze datum. Kies een andere dag.</p>
+                        </div>
+                    }
+                </div>
+            } @else {
+                <div class="select-date-prompt">
+                    <p>👆 Selecteer eerst een datum om beschikbare tijdslots te zien</p>
+                </div>
+            }
+
+            <div class="form-group">
+                <label for="dienst">Dienst *</label>
+                <select 
+                    id="dienst" 
+                    name="dienst"
+                    [(ngModel)]="formData.dienst"
+                    required>
+                    <option value="">Kies een dienst</option>
+                    <option value="knipbeurt">Knipbeurt - €20</option>
+                    <option value="baard">Baard trimmen - €15</option>
+                    <option value="knip-baard">Knipbeurt + Baard - €30</option>
+                    <option value="scheren">Scheren - €18</option>
+                    <option value="kind">Kinderknip - €15</option>
+                    <option value="special">Speciale behandeling - €35</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="opmerkingen">Opmerkingen</label>
+                <textarea 
+                    id="opmerkingen" 
+                    name="opmerkingen"
+                    [(ngModel)]="formData.opmerkingen"
+                    rows="4" 
+                    placeholder="Eventuele bijzonderheden of wensen..."></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Afspraak Bevestigen</button>
+                <button type="button" (click)="resetForm()" class="btn-secondary">Wissen</button>
+            </div>
+        </form>
+
+        <div class="afspraak-info">
+            <div class="info-card">
+                <h3>📍 Locatie</h3>
+                <p>Kamal Barbershop</p>
+                <p>Pelt Centrum</p>
+                <p>België</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🕐 Openingsuren</h3>
+                <p><strong>Ma-Vr:</strong> 09:00 - 18:00</p>
+                <p><strong>Zaterdag:</strong> 09:00 - 17:00</p>
+                <p><strong>Zondag:</strong> Gesloten</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📞 Contact</h3>
+                <p>Tel: +32 488 28 13 17</p>
+                <p>Email: info@kamalbarber.be</p>
+            </div>
+
+            <div class="info-card highlight">
+                <h3>💡 Tips</h3>
+                <ul>
+                    <li>Kom 5 minuten voor uw afspraak</li>
+                    <li>Annuleer minstens 24u op voorhand</li>
+                    <li>Breng een foto mee van uw gewenste stijl</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
